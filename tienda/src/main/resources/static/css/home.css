@@ -34,7 +34,7 @@ nav ul il {
 }
 nav ul il a {
         text-decoration: none;
-	color: #BD61FB;
+	color: #1FD506;
 }
 .content{
 	margin-top: 10%;
@@ -56,7 +56,7 @@ nav ul il a {
 	display: flex;
 }
 .arrow-icons img{
-	width: 80px;
+	width: 50px;
 	margin-right: 25px;
 }
 .rodgers{
