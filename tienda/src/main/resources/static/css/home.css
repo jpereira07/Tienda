@@ -27,12 +27,12 @@ nav{
 	flex: 1;
 	padding-left: 60px;
 }
-nav ul il {
+nav ul li {
 	display: inline-block;
 	list-style: none;
 	margin: 0px 20px;
 }
-nav ul il a {
+nav ul li a {
         text-decoration: none;
 	color: #1FD506;
 }
