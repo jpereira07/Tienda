@@ -4,8 +4,10 @@ package com.tienda.service;
 import com.tienda.entity.Persona;
 import com.tienda.repository.PersonaRepository;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.tienda.repository.PersonaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 /**
  *
@@ -25,17 +27,17 @@ public class PersonaService implements IPersonaService {
 
     @Override
     public void savePerson(Persona persona) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        personaRepository.save(persona);
     }
 
     @Override
-    public Persona getPersonByYD(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Persona getPersonByID(long id) {
+        return personaRepository.findById(id).orElse(null);
     }
 
     @Override
     public void delete(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        personaRepository.deleteById(id);
     }
 
     
