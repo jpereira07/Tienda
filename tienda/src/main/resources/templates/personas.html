@@ -3,25 +3,37 @@
     <head>
         <title>Tienda</title>
         <meta charset="UTF-8">
-        //<meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Datos de Cliente</h1>
-        <a th:href="@{/nuevoCliente}"> Nuevo Cliente</a>
-        <br>
-        <div >
-        <table>
-            <th:block th:each="user : ${personas}">
-                <tr>
-                    <td th:text="${user.getNombre}"></td>
-                    <td th:text="${user.getApellido1}"></td>
-                    <td th:text="${user.getApellido2}"></td>
-                    <td th:text="${user.getEmail}"></td>
-                    <td th:text="${user.getTelefono}"></td>
-                    //<td><a th:href="@{/modificarCliente/}+${cliente.idCliente}">Modificar</a></td>
-                </tr>
-            </th:block>
-        </table>
+        <h1 th:text="${titulo}"></h1>
+        
+        <div>
+          
+            <table border="i">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido 1</th>
+                        <th>Apellido 2</th>
+                        <th>Email</th>
+                        <th>Telefono</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${personas}">
+                        <td th:text="${user.getNombre}"></td>
+                        <td th:text="${user.getApellido1}"></td>
+                        <td th:text="${user.getApellido2}"></td>
+                        <td th:text="${user.getEmail}"></td>
+                        <td th:text="${user.getTelefono}"></td>
+                        <td>
+                            <a th:href="@{/delete/{id} (id=${user.getId})}">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </body>
+    
 </html>

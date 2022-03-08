@@ -13,7 +13,7 @@ import java.util.List;
 public interface IPersonaService {
     public List<Persona> getAllPerson();
     public void savePerson(Persona persona);
-    public Persona getPersonByID(long id);
     public void delete(long id);
+    public Persona getPersonByID(long id);
     
 }
