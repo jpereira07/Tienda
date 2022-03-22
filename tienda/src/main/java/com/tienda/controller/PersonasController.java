@@ -1,7 +1,9 @@
 
 package com.tienda.controller;
 
+import com.tienda.entity.Pais;
 import com.tienda.entity.Persona;
+import com.tienda.service.IPaisService;
 import com.tienda.service.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class PersonasController {
     
     @Autowired
     private IPersonaService personaService;
+    @Autowired
+    private IPaisService paisService;
     
     @GetMapping("/persona")
     public String index(Model model){
@@ -33,7 +37,9 @@ public class PersonasController {
     
     @GetMapping("/personasN")
     public String crearPersona(Model model){
+        List<Pais> listaPais = paisService.listCountry();
         model.addAttribute("persona", new Persona());
+        model.addAttribute("pais", listaPais);
         return "modificarCliente";
     }
     
@@ -49,6 +55,14 @@ public class PersonasController {
         return "redirect:/persona";
     }
     
+    @GetMapping("/editPersona/{id}")
+    public String editPersona(@PathVariable("id") Long idPersona, Model model){
+        Persona persona = personaService.getPersonByID(idPersona);
+        List<Pais> listaPais = paisService.listCountry();
+        model.addAttribute("persona", persona);
+        model.addAttribute("pais", listaPais);
+        return "modificarCliente";
+    }
     
     
    

@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:"http://wwww.w3.org/1999/xhtml">
-    <head>
-        <title>Modificar Cliente</title>
-        <meta charset="UTF-8">
-    </head>
+    <head th:replace="plantilla/template::head"></head>
     <body>
+        <header th:replace="plantilla/template::header"></header>
         <h1>Datos de Cliente</h1>
-        <a th:href="@{/personas}">Regresar</a>
+        <a th:href="@{/persona}">Regresar</a>
         <br>
         <div>
             <form th:object="${persona}"
                   th:action="@{/save}"
                   method="POST"
                  >
+                <input type="hidden" th:field="*{id}">
                 <div>
                     <label for="nombre">Nombre:</label>
                     <input type="text" th:field="*{nombre}" name="nombre" ></input>
@@ -40,11 +39,16 @@
                 </div>
                 <div>
                     <label for="pais">Pais:</label>
-                    <input type="text" th:field="*{pais}" name="pais"></input>
+                    <select th:field="*{pais}">
+                        <option th:each="x:${paises}"
+                                th:value="${x.id}"
+                                th:text="${x.pais}">
+                    </select>
                 </div>
             
                 <button type="submit" value="Guardar">Submit</button>
             </form>
         </div>
+        <footer th:replace="plantilla/template::footer"></footer>
     </body>
 </html>

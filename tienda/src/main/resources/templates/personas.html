@@ -17,7 +17,10 @@
                         <th>Apellido 2</th>
                         <th>Email</th>
                         <th>Telefono</th>
+                        <th>Pais</th>
+                        <th>Editar</th>
                         <th>Delete</th>
+                        <th>Agregar Usuario</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,8 +30,15 @@
                         <td th:text="${user.getApellido2}"></td>
                         <td th:text="${user.getEmail}"></td>
                         <td th:text="${user.getTelefono}"></td>
+                        <td th:text="${user.getPais}"></td>
+                        <td>
+                            <a th:href="@{/editPersona/{id} (id=${user.getId})}">Editar</a>
+                        </td>
                         <td>
                             <a th:href="@{/delete/{id} (id=${user.getId})}">Delete</a>
+                        </td>
+                        <td>
+                            <a th:href="@{/personasN}">Agregar Usuario</a>
                         </td>
                     </tr>
                 </tbody>
